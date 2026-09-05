@@ -1,0 +1,15 @@
+﻿메서드,도메인,이름,설명
+POST,settlement,/api/rooms/{shareCode}/settlement,정산 확정 (스냅샷 생성 + 방 read-only 전환)
+GET,settlement,/api/rooms/{shareCode}/settlement/preview,정산 미리보기 (저장 안 함)
+GET,settlement,/api/rooms/{shareCode}/settlement,확정된 정산 결과 조회 (스냅샷)
+POST,receipts,/api/rooms/{shareCode}/receipts,결제 내역 생성
+PATCH,receipts,/api/rooms/{shareCode}/receipts/{receiptId},결제 내역 수정
+DELETE,receipts,/api/rooms/{shareCode}/receipts/{receiptId},결제 내역 삭제 (소프트)
+GET,receipts,/api/rooms/{shareCode}/receipts/{receiptId},결제 내역 상세 조회
+GET,receipts,/api/rooms/{shareCode}/receipts,결제 내역 목록 조회 (검색 + 필터 + 무한스크롤)
+GET,rooms,/api/rooms/{shareCode}/summary,정산방 대시보드 조회
+GET,rooms,/api/rooms/{shareCode}/members,멤버 목록 조회
+PATCH,rooms,/api/rooms/{shareCode},정산방 정보 및 멤버 목록 수정
+GET,rooms,/api/rooms/{shareCode},정산방 정보 조회
+POST,rooms,/api/rooms,정산방 생성
+POST,files,/api/files,이미지 업로드
