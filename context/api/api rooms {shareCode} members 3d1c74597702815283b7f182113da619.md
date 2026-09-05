@@ -4,8 +4,8 @@
 메서드: GET
 설명: 멤버 목록 조회
 
-```
-GET /api/rooms/{roomId}/members
+```jsx
+GET /api/rooms/{shareCode}/members
 ```
 
 결제 내역 생성/수정 화면의 결제자 드롭다운, 결제 내역 리스트의 결제자 필터 칩에 쓴다.

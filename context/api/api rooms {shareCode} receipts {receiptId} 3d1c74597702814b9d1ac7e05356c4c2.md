@@ -4,8 +4,8 @@
 메서드: PATCH
 설명: 결제 내역 수정
 
-```
-PATCH /api/rooms/{roomId}/receipts/{receiptId}
+```jsx
+PATCH /api/rooms/{shareCode}/receipts/{receiptId}
 ```
 
 ## 요청

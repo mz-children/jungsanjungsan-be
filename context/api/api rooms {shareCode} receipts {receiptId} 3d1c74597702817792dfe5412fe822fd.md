@@ -4,8 +4,8 @@
 메서드: GET
 설명: 결제 내역 상세 조회
 
-```
-GET /api/rooms/{roomId}/receipts/{receiptId}
+```jsx
+GET /api/rooms/{shareCode}/receipts/{receiptId}
 ```
 
 ## 응답 `200 OK`

@@ -4,8 +4,8 @@
 메서드: DELETE
 설명: 결제 내역 삭제 (소프트)
 
-```
-DELETE /api/rooms/{roomId}/receipts/{receiptId}
+```jsx
+DELETE /api/rooms/{shareCode}/receipts/{receiptId}
 ```
 
 소프트 삭제(`deleted_at`)다. 이후 모든 조회와 집계에서 제외된다.

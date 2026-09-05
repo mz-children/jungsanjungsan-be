@@ -4,8 +4,8 @@
 메서드: PATCH
 설명: 정산방 정보 및 멤버 목록 수정
 
-```
-PATCH /api/rooms/{roomId}
+```jsx
+PATCH /api/rooms/{shareCode}
 ```
 
 정산방 수정 화면의 "수정하기". 방 정보와 멤버 목록을 한 트랜잭션에서 함께 처리한다.

@@ -4,8 +4,8 @@
 메서드: GET
 설명: 정산방 정보 조회
 
-```
-GET /api/rooms/{roomId}
+```jsx
+GET /api/rooms/{shareCode}
 ```
 
 공통 헤더의 방 제목, 드로어의 썸네일, 정산방 수정 화면의 폼 초기값에 쓰인다.
@@ -14,7 +14,7 @@ GET /api/rooms/{roomId}
 
 ```json
 {
-  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "shareCode": "V1StGXR8_Z5j",
   "title": "제주도 여행",
   "totalBudget": 1000000,
   "budgetPerPerson": 333333,

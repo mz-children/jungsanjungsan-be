@@ -4,8 +4,8 @@
 메서드: GET
 설명: 확정된 정산 결과 조회 (스냅샷)
 
-```
-GET /api/rooms/{roomId}/settlement
+```jsx
+GET /api/rooms/{shareCode}/settlement
 ```
 
 확정 후 정산 결과 화면에 재방문했을 때.

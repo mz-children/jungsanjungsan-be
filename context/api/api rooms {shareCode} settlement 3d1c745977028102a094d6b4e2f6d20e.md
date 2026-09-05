@@ -4,8 +4,8 @@
 메서드: POST
 설명: 정산 확정 (스냅샷 생성 + 방 read-only 전환)
 
-```
-POST /api/rooms/{roomId}/settlement
+```jsx
+POST /api/rooms/{shareCode}/settlement
 ```
 
 정산 결과 화면의 "최종 정산 완료하기". 단일 트랜잭션으로 스냅샷을 만들고 방을 SETTLED로 전환한다.

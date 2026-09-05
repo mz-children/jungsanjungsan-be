@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,windows,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,python
 
+# 로컬 업로드 이미지 저장 디렉토리 (src/config.py FILE_STORAGE_DIR)
+/uploads/
+
 ### macOS ###
 # General
 .DS_Store

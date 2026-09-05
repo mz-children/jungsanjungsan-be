@@ -8,6 +8,11 @@ from src.config import settings
 
 from src.core.database import Base
 from src.users.model import User
+from src.files.model import FileObject
+from src.rooms.model import Room
+from src.members.model import Member
+from src.receipts.model import Receipt
+from src.settlements.model import Settlement, SettlementEntry
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

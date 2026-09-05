@@ -2,19 +2,19 @@
 
 # 엔드포인트 목록
 
-[정산정산API 명세](API%20%EB%AA%85%EC%84%B8/%EC%A0%95%EC%82%B0%EC%A0%95%EC%82%B0API%20%EB%AA%85%EC%84%B8%203d1c7459770280829ab1f3838d8a7f14.csv)
+[정산정산API 명세](3d1c7459770280829ab1f3838d8a7f14.csv)
 
 # 개요
 
-| 항목 | 값 |
-| --- | --- |
-| Base URL | `/api` |
-| 포맷 | JSON (`application/json; charset=utf-8`). 파일 업로드만 예외 |
-| 인증 | 없음. `shareCode`를 아는 사람이 곧 참여자 |
-| 식별자 | URL 식별자는 `room.share_code`. 내부 PK(uuid)는 응답에 노출하지 않음 |
-| 통화 | KRW 원 단위 정수. 소수점·문자열 포맷팅 없음 (`450000`) |
-| 시각 | ISO 8601 오프셋 표기 (`2025-01-15T09:30:00+09:00`). 저장은 UTC |
-| 페이지네이션 | 커서 기반. OFFSET 사용 안 함 |
+| 항목         | 값                                                                   |
+| ------------ | -------------------------------------------------------------------- |
+| Base URL     | `/api`                                                               |
+| 포맷         | JSON (`application/json; charset=utf-8`). 파일 업로드만 예외         |
+| 인증         | 없음. `shareCode`를 아는 사람이 곧 참여자                            |
+| 식별자       | URL 식별자는 `room.share_code`. 내부 PK(uuid)는 응답에 노출하지 않음 |
+| 통화         | KRW 원 단위 정수. 소수점·문자열 포맷팅 없음 (`450000`)               |
+| 시각         | ISO 8601 오프셋 표기 (`2025-01-15T09:30:00+09:00`). 저장은 UTC       |
+| 페이지네이션 | 커서 기반. OFFSET 사용 안 함                                         |
 
 # 공통 규약
 
@@ -40,20 +40,20 @@
 
 `code`는 프론트 분기용 안정적 식별자, `message`는 그대로 노출 가능한 한국어 문구, `details`는 선택이며 코드별로 구조가 다르다.
 
-| HTTP | code | 발생 지점 |
-| --- | --- | --- |
-| 400 | `VALIDATION_ERROR` | 필수 누락, 길이 초과, 형식 불일치 |
-| 400 | `INVALID_PAYER` | `payerMemberId`가 해당 방의 활성 멤버가 아님 |
-| 400 | `NO_ACTIVE_MEMBER` | 활성 멤버 0명 상태에서 정산 시도 |
-| 404 | `ROOM_NOT_FOUND` | 존재하지 않는 shareCode |
-| 404 | `RECEIPT_NOT_FOUND` | 존재하지 않거나 소프트 삭제된 결제 내역 |
-| 404 | `SETTLEMENT_NOT_FOUND` | 아직 정산이 확정되지 않은 방의 결과 조회 |
-| 409 | `ROOM_ALREADY_SETTLED` | SETTLED 상태 방에 대한 모든 쓰기 시도 |
-| 409 | `DUPLICATE_MEMBER_NAME` | 방 내 멤버 이름 중복 (대소문자·앞뒤 공백 무시) |
-| 409 | `MEMBER_HAS_RECEIPTS` | 결제 내역이 있는 멤버 삭제 시도 |
-| 409 | `SETTLEMENT_STALE` | 미리보기 이후 결제 내역이 변경된 상태에서 확정 시도 |
-| 413 | `FILE_TOO_LARGE` | 업로드 용량 초과 |
-| 415 | `UNSUPPORTED_MEDIA_TYPE` | 이미지가 아닌 파일 업로드 |
+| HTTP | code                     | 발생 지점                                           |
+| ---- | ------------------------ | --------------------------------------------------- |
+| 400  | `VALIDATION_ERROR`       | 필수 누락, 길이 초과, 형식 불일치                   |
+| 400  | `INVALID_PAYER`          | `payerMemberId`가 해당 방의 활성 멤버가 아님        |
+| 400  | `NO_ACTIVE_MEMBER`       | 활성 멤버 0명 상태에서 정산 시도                    |
+| 404  | `ROOM_NOT_FOUND`         | 존재하지 않는 shareCode                             |
+| 404  | `RECEIPT_NOT_FOUND`      | 존재하지 않거나 소프트 삭제된 결제 내역             |
+| 404  | `SETTLEMENT_NOT_FOUND`   | 아직 정산이 확정되지 않은 방의 결과 조회            |
+| 409  | `ROOM_ALREADY_SETTLED`   | SETTLED 상태 방에 대한 모든 쓰기 시도               |
+| 409  | `DUPLICATE_MEMBER_NAME`  | 방 내 멤버 이름 중복 (대소문자·앞뒤 공백 무시)      |
+| 409  | `MEMBER_HAS_RECEIPTS`    | 결제 내역이 있는 멤버 삭제 시도                     |
+| 409  | `SETTLEMENT_STALE`       | 미리보기 이후 결제 내역이 변경된 상태에서 확정 시도 |
+| 413  | `FILE_TOO_LARGE`         | 업로드 용량 초과                                    |
+| 415  | `UNSUPPORTED_MEDIA_TYPE` | 이미지가 아닌 파일 업로드                           |
 
 `VALIDATION_ERROR`의 details는 필드 단위 배열이다.
 
@@ -96,30 +96,30 @@ cursor = base64url("{paidAt ISO8601}|{receiptId}")
 
 PATCH는 **키가 존재하는 필드만** 수정한다. 선택 필드를 비우려면 명시적으로 null을 보낸다.
 
-| 요청 본문 | 동작 |
-| --- | --- |
-| `{}` | 변경 없음 |
+| 요청 본문                   | 동작                 |
+| --------------------------- | -------------------- |
+| `{}`                        | 변경 없음            |
 | `{ "description": "메모" }` | 설명을 "메모"로 변경 |
-| `{ "description": null }` | 설명 삭제 |
+| `{ "description": null }`   | 설명 삭제            |
 
 # 화면별 호출 매핑
 
-| 화면 | 호출 |
-| --- | --- |
-| `/` | 없음 (공유 링크 복사는 클라이언트 처리) |
-| `/room/create` | `POST /files` (썸네일 선택 시) |
-| `/room/confirm` | 없음 (클라이언트 상태만 표시) |
-| `/room/done` | `POST /rooms` — 진입 직전 1회 |
-| `/room/:shareCode` | `GET /rooms/:shareCode/summary` |
-| `/room/:shareCode` 드로어 | `GET /rooms/:shareCode` (썸네일·제목) |
-| `/room/:shareCode/edit` | `GET /rooms/:shareCode` → `POST /files` → `PATCH /rooms/:shareCode` |
-| `/room/:shareCode/receipt` | `GET /rooms/:shareCode/members`  • `GET /rooms/:shareCode/receipts` |
-| `/room/:shareCode/receipt/create` | `GET /members` → `POST /files` → `POST /receipts` |
-| `/room/:shareCode/receipt/:rid` | `GET /receipts/:rid` |
-| `/room/:shareCode/receipt/:rid/edit` | `GET /receipts/:rid`  • `GET /members` → `PATCH /receipts/:rid` |
-| `/room/:shareCode/receipt/:rid` 삭제 | `DELETE /receipts/:rid` |
-| `/room/:shareCode/result` (확정 전) | `GET /settlement/preview` → `POST /settlement` |
-| `/room/:shareCode/result` (확정 후) | `GET /settlement` |
+| 화면                                 | 호출                                                                |
+| ------------------------------------ | ------------------------------------------------------------------- |
+| `/`                                  | 없음 (공유 링크 복사는 클라이언트 처리)                             |
+| `/room/create`                       | `POST /files` (썸네일 선택 시)                                      |
+| `/room/confirm`                      | 없음 (클라이언트 상태만 표시)                                       |
+| `/room/done`                         | `POST /rooms` — 진입 직전 1회                                       |
+| `/room/:shareCode`                   | `GET /rooms/:shareCode/summary`                                     |
+| `/room/:shareCode` 드로어            | `GET /rooms/:shareCode` (썸네일·제목)                               |
+| `/room/:shareCode/edit`              | `GET /rooms/:shareCode` → `POST /files` → `PATCH /rooms/:shareCode` |
+| `/room/:shareCode/receipt`           | `GET /rooms/:shareCode/members` • `GET /rooms/:shareCode/receipts`  |
+| `/room/:shareCode/receipt/create`    | `GET /members` → `POST /files` → `POST /receipts`                   |
+| `/room/:shareCode/receipt/:rid`      | `GET /receipts/:rid`                                                |
+| `/room/:shareCode/receipt/:rid/edit` | `GET /receipts/:rid` • `GET /members` → `PATCH /receipts/:rid`      |
+| `/room/:shareCode/receipt/:rid` 삭제 | `DELETE /receipts/:rid`                                             |
+| `/room/:shareCode/result` (확정 전)  | `GET /settlement/preview` → `POST /settlement`                      |
+| `/room/:shareCode/result` (확정 후)  | `GET /settlement`                                                   |
 
 정산 결과 화면 진입 시에는 `GET /settlement`를 먼저 호출하고, `404 SETTLEMENT_NOT_FOUND`가 오면 `GET /settlement/preview`로 넘어가는 방식이 안전하다. 반대 순서로 하면 이미 확정된 방에서 불필요한 409가 먼저 발생한다.
 
@@ -133,17 +133,17 @@ DB 모델 문서의 설계를 그대로 따른다. `share_code`가 URL 노출용
 
 `share_code` 생성 규칙은 다음과 같다.
 
-| 항목 | 값 |
-| --- | --- |
-| 생성 주체 | 애플리케이션. INSERT 직전에 생성해 같이 넣는다 |
-| 형식 | `^[A-Za-z0-9_-]{8,32}$` — `room_share_code_fmt` 제약 |
-| 권장 길이 | 12자 nanoid. 약 71비트 엔트로피 |
-| 충돌 처리 | UNIQUE 위반 시 재생성 후 재시도, 최대 3회 |
+| 항목      | 값                                                   |
+| --------- | ---------------------------------------------------- |
+| 생성 주체 | 애플리케이션. INSERT 직전에 생성해 같이 넣는다       |
+| 형식      | `^[A-Za-z0-9_-]{8,32}$` — `room_share_code_fmt` 제약 |
+| 권장 길이 | 12자 nanoid. 약 71비트 엔트로피                      |
+| 충돌 처리 | UNIQUE 위반 시 재생성 후 재시도, 최대 3회            |
 
 <aside>
 ⚠️
 
-**uuid 대신 공유 코드를 쓰는 이유.** 추측 불가능성만 놓고 보면 uuid v4가 122비트로 더 강하다. 그러나 이 서비스는 링크를 메신저로 주고받는 것이 사실상 유일한 참여 경로라 링크 길이가 그대로 UX다. 12자 nanoid는 약 71비트로 무차별 대입 방어에 충분하면서 링크가 짧다. 대가는 생성·충돌 처리 코드가 필요하고 식별자가 사실상 둘(PK + 공유 코드)이 된다는 점인데, 후자는 API 경계에서 `share_code`만 노출해 해결한다.~32자 영숫자 코드보다 강하고, `share_code` 생성·충돌 처리 코드가 통째로 사라진다. 다만 `/room/3fa85f64-5717-4562-b3fc-2c963f66afa6`는 카카오톡 공유 시 눈에 거슬린다. 짧은 링크가 UX상 중요하다면 `share_code`를 살리고 경로 파라미터를 `shareCode`로 바꾸는 편이 낫다. **API 구현 전에 확정해야 한다.**
+**uuid 대신 공유 코드를 쓰는 이유.** 추측 불가능성만 놓고 보면 uuid v4가 122비트로 더 강하다. 그러나 이 서비스는 링크를 메신저로 주고받는 것이 사실상 유일한 참여 경로라 링크 길이가 그대로 UX다. 12자 nanoid는 약 71비트로 무차별 대입 방어에 충분하면서 링크가 짧다. 대가는 생성·충돌 처리 코드가 필요하고 식별자가 사실상 둘(PK + 공유 코드)이 된다는 점인데, 후자는 API 경계에서 `share_code`만 노출해 해결한다.
 
 </aside>
 
@@ -184,9 +184,9 @@ DB에서는 `ON DELETE SET NULL`이라 멤버가 하드 삭제되면 `member_id`
 
 ## 명세에 포함되지 않은 것
 
-| 항목 | 사유 |
-| --- | --- |
-| 정산방 삭제 | 화면에 진입점이 없음 |
-| 금액 검색 | 기획 미확정. 결제 내역 목록 조회 페이지 참고 |
-| 일자별 바 차트, 도넛 차트 | 기획서상 레거시로 분류 |
-| Rate limiting | 인증이 없어 IP 기준밖에 없음. 운영 단계에서 검토 |
+| 항목                      | 사유                                             |
+| ------------------------- | ------------------------------------------------ |
+| 정산방 삭제               | 화면에 진입점이 없음                             |
+| 금액 검색                 | 기획 미확정. 결제 내역 목록 조회 페이지 참고     |
+| 일자별 바 차트, 도넛 차트 | 기획서상 레거시로 분류                           |
+| Rate limiting             | 인증이 없어 IP 기준밖에 없음. 운영 단계에서 검토 |

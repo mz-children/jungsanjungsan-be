@@ -4,8 +4,8 @@
 메서드: POST
 설명: 결제 내역 생성
 
-```
-POST /api/rooms/{roomId}/receipts
+```jsx
+POST /api/rooms/{shareCode}/receipts
 ```
 
 ## 요청

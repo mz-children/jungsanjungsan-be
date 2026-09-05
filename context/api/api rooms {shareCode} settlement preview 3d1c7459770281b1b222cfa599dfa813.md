@@ -4,8 +4,8 @@
 메서드: GET
 설명: 정산 미리보기 (저장 안 함)
 
-```
-GET /api/rooms/{roomId}/settlement/preview
+```jsx
+GET /api/rooms/{shareCode}/settlement/preview
 ```
 
 계산만 하고 저장하지 않는다. 여러 번 호출해도 부작용이 없다.
@@ -65,7 +65,7 @@ GET /api/rooms/{roomId}/settlement/preview
 | `budgetDiffPercent` | (결제 총액 − 예산) ÷ 예산 × 100. **음수 = 절약**. 예산 0이면 null |
 | `perPersonAmount` | 결제 총액 ÷ 활성 멤버 수, 버림 |
 | `balanceAmount` | `paidAmount - shareAmount` |
-| `direction` | RECEIVE(받을 돈) / SEND(보널 돈) / NONE |
+| `direction` | RECEIVE(받을 돈) / SEND(보낼 돈) / NONE |
 
 `entries`는 direction 우선(RECEIVE → SEND → NONE), 같은 그룹 안에서는 balanceAmount 절대값 내림차순으로 정렬한다.
 
